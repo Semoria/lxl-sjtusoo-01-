@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Daily Log</title>
+    <style>
+        body {
+            background: #0b0c10;
+            color: #c5c6c7;
+            font-family: monospace;
+            text-align: center;
+        }
+
+        #secret {
+            display: none;
+            font-size: 2rem;
+            color: #ff4f81;
+            margin-top: 2rem;
+        }
+
+        .hint {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>2025-12-19 · Daily Log</h1>
+    <p>I had fallen in love with someone, but let us do a soft launch, ok?</p>
+    <p class="hint">（press the spacebar on your keyboard to see who he is ）</p>
+    <div id="secret"> @AntiElixir </div>
+    <script>
+        document.addEventListener("keydown", function (e) {
+            if (e.key === " ") {
+               document.getElementById("secret").style.display = "block";
+            }
+        });
+
+    </script>
+</body>
+
+</html>
