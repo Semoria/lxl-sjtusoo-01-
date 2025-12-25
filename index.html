@@ -1,32 +1,31 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Daily Log</title>
-    <style>
-        body {
-            background: #0b0c10;
-            color: #c5c6c7;
-            font-family: monospace;
-            text-align: center;
-            overflow: hidden; /* 防止滚动条 */
-        }
+  <meta charset="UTF-8">
+  <title>Daily Log</title>
+  <style>
+    body {
+      background: #0b0c10;
+      color: #c5c6c7;
+      font-family: monospace;
+      text-align: center;
+      overflow: hidden; /* 防止滚动条 */
+    }
 
-        #secret {
-            display: none;
-            font-size: 2rem;
-            color: #87CEEB;
-            margin-top: 2rem;
-        }
+    #secret {
+      display: none;
+      font-size: 2rem;
+      color: #87CEEB;
+      margin-top: 2rem;
+    }
 
-        .hint {
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-        <!-- change1225start -->
-        /* ===== 爱心发射动画相关样式 ===== */
+    .hint {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    /* ===== 爱心发射动画相关样式 ===== */
     .heart {
       position: fixed;
       bottom: 0;
@@ -72,62 +71,42 @@
         opacity: 0;
       }
     }
-
-    /* 底部小提示区域（可选） */
-    .love-launcher-hint {
-      position: fixed;
-      bottom: 16px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 0.8rem;
-      opacity: 0.6;
-      pointer-events: none;
-    }
-        
-<!--change1225over -->
-        
-    </style>
+  </style>
 </head>
-
 <body>
-    <h1>2025-12-25 · Daily Log</h1>
-    <p>I have fallen in love with someone, but let us do a soft launch, ok?</p>
-    <p class="hint">（press the spacebar on your keyboard to see who he is ）</p>
-    <div id="secret"> @AntiElixir </div>
-    <script>
-        document.addEventListener("keydown", function (e) {
-            if (e.key === " ") {
-               document.getElementById("secret").style.display = "block";
-            }
-        });
+  <h1>2025-12-25 · Daily Log</h1>
+  <p>I have fallen in love with someone, but let us do a soft launch, ok?</p>
+  <p class="hint">（press the spacebar on your keyboard to see who he is ）</p>
+  <div id="secret">@AntiElixir</div>
 
-        <!--change1225 part02 start -->
-            function createHeart() {
+  <script>
+    document.addEventListener("keydown", function (e) {
+      if (e.key === " ") {
+        document.getElementById("secret").style.display = "block";
+      }
+    });
+
+    function createHeart() {
       const heart = document.createElement("div");
       heart.classList.add("heart");
 
-      // 随机水平偏移（相对于中线）
       const offset = (Math.random() - 0.5) * 200; // -100px ~ 100px
       heart.style.left = "50%";
       heart.style.transform = `translateX(${offset}px) rotate(45deg)`;
 
-      // 随机缩放
       const scale = 0.6 + Math.random() * 0.9; // 0.6 ~ 1.5
       heart.style.animationDuration = 1.8 + Math.random() * 1.4 + "s";
       heart.style.opacity = 0.7 + Math.random() * 0.3;
 
-      // 加到页面上
       document.body.appendChild(heart);
 
-      // 动画结束后删除
       heart.addEventListener("animationend", () => {
         heart.remove();
       });
     }
-     // 定时自动发射爱心
+
     let heartInterval = setInterval(createHeart, 500);
 
-    // 可选：按下 H 切换爱心发射开关
     document.addEventListener("keydown", function (e) {
       if (e.key === "h" || e.key === "H") {
         if (heartInterval) {
@@ -138,9 +117,6 @@
         }
       }
     });
-        <!-- change1225over -->
-            
-    </script>
+  </script>
 </body>
-
 </html>
